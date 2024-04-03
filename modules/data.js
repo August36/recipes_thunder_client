@@ -50,7 +50,7 @@ export async function postRecipe() {
   console.log(data);
 }
 
-export async function delRecipe() {
+export async function delRecipe(id) {
   let headersList = {
     "User-Agent": "Thunder Client (https://www.thunderclient.com)",
     Accept: "application/json",
@@ -59,7 +59,7 @@ export async function delRecipe() {
   };
 
   let response = await fetch(
-    endPoint + "?id=eq.4",
+    endPoint + "?id=eq." + id,
     {
       method: "DELETE",
       headers: headersList,
@@ -68,6 +68,7 @@ export async function delRecipe() {
 
   let data = await response.json();
   console.log(data);
+  return data;
 }
 export async function patchRecipe() {
   let headersList = {
